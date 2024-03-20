@@ -1,23 +1,25 @@
+fn circle_properties(radius: f64) -> (f64, f64) {
+    let area = std::f64::consts::PI * radius.powi(2);
+    let circumference = 2.0 * std::f64::consts::PI * radius;
+    (area, circumference)
+}
+
 fn main() {
-    // Array creation with automatic size inference
-    let mut my_numbers = [1, 2, 3, 4, 5]; 
+    // Tuple creation
+    let my_tuple: (i32, f64, String) = (10, 3.14, "Hello".to_string());
 
-    // Array creation with explicit type and size
-    let weekdays: [&str; 7] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    // Accessing elements
+    println!("First element (integer): {}", my_tuple.0);
+    println!("Second element (float): {}", my_tuple.1);
+    println!("Third element (string): {}", my_tuple.2);
 
-    // Accessing elements using indexing
-    println!("The first number: {}", my_numbers[0]);
-    println!("The third weekday: {}", weekdays[2]);
+    // Destructuring
+    let (area, circumference) = circle_properties(5.0);
+    println!("Area: {}, Circumference: {}", area, circumference);
 
-    // Iterating over an array
-    for number in my_numbers {
-        println!("Number: {}", number);
-    }
+    // Tuple elements can be mutated:
+    let mut another_tuple = (1, vec![2, 3, 4]); 
+    another_tuple.1.push(5); // Modifying the vector within the tuple
 
-    // Unlike C arrays are bound checked in rust
-    // my_numbers[6] = 6; // This would cause a compile-time error
-
-    // Arrays are types and cannot be directly assigned
-    let another_array = [10, 20, 30];
-    // my_numbers = another_array;  // This would cause a compile-time error due to mismatched types 
+    println!("Modified tuple: {:?}", another_tuple);
 }
