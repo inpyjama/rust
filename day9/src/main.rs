@@ -22,6 +22,10 @@ fn main() {
         println!("Number: {}", number);
     }
 
+    // Printing Using debug Trait   
+    println!("Number: {:?}", my_numbers);
+
+
     // Unlike C arrays are bound checked in rust
     // my_numbers[6] = 6; // This would cause a compile-time error
 
